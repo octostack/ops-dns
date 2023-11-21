@@ -21,8 +21,8 @@ jobs:
         run: npm install
       -
         uses: pulumi/actions@v4
-        with:
-          command: up
-          stack-name: ${{ github.repository }}
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+        with:
+          command: up
+          stack-name: octostack/ops-dns/prod
