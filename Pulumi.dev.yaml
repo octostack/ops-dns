@@ -1,0 +1,5 @@
+config:
+  cloudflare:apiKey:
+    secure: AAABACrtibkNrXHoJYcygST3gZg24GCqHJSG/l1zHEJ3b9N8qw32KO3BZa7bevOQrfzn26DW8lCHXRjgQIGBUTn37vDp
+  cloudflare:email: syntaqx@gmail.com
+  ops-dns:zoneId: 560c8309160f81719a92f54bdedec6c5

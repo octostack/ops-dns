@@ -1,0 +1,11 @@
+{
+    "name": "ops-dns",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^16"
+    },
+    "dependencies": {
+        "@pulumi/cloudflare": "^5.15.0",
+        "@pulumi/pulumi": "^3.20.0"
+    }
+}

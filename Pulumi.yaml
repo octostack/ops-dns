@@ -1,0 +1,3 @@
+name: ops-dns
+runtime: nodejs
+description: Operations DNS Entries

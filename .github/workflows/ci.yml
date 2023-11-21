@@ -1,0 +1,27 @@
+name: Pulumi
+
+on:
+  pull_request:
+    branches: main
+
+jobs:
+
+  preview:
+    name: Preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      -
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+      -
+        name: Install dependencies
+        run: npm install
+      -
+        uses: pulumi/actions@v4
+        with:
+          command: preview
+          stack-name: octostack/ops-dns
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
