@@ -5,11 +5,16 @@ import * as cloudflare from "@pulumi/cloudflare";
 const config = new pulumi.Config();
 
 // Get zoneName from the config
-let zoneId = config.require("zoneId");
+const zoneName = config.require("zoneName");
+
+// Extract the zoneId from the zoneName
+const primaryZone = cloudflare.getZone({
+    name: zoneName,
+});
 
 // Set up an A record within the DNS Zone
 const primaryRecord = new cloudflare.Record("primaryRecord", {
-    zoneId: zoneId,
+    zoneId: primaryZone.then(primaryZone => primaryZone.id),
     name: "test",
     value: "192.168.0.11",
     type: "A",
