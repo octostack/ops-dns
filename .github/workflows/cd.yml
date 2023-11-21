@@ -25,4 +25,4 @@ jobs:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
         with:
           command: up
-          stack-name: octostack/ops-dns
+          stack-name: octostack/ops-dns/dev
