@@ -28,6 +28,11 @@ const githubPagesAAAARecords = [
 
 const recordList = [
     {
+        name: "www",
+        value: "@",
+        type: "CNAME",
+    },
+    {
         name: "docs",
         value: "octostack.github.io",
         type: "CNAME",
