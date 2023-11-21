@@ -6,8 +6,8 @@ on:
 
 jobs:
 
-  update:
-    name: Update
+  preview:
+    name: Preview
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
