@@ -1,0 +1,5 @@
+config:
+  cloudflare:apiKey:
+    secure: AAABAHC1Pne90tBVEVgAn3UZC5XHbKCRlKg+jNsqPetpSpmbKh++hBVMmx4fVcpPxqEqjHE2xku1rvntuQ8WHz1bUwFp
+  cloudflare:email: syntaqx@gmail.com
+  ops-dns:zoneName: octostack.io
