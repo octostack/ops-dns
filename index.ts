@@ -19,6 +19,16 @@ const githubPagesARecords = [
     "185.199.111.153",
 ];
 
+githubPagesARecords.forEach((value, i) => {
+    const _ = new cloudflare.Record("githubPagesA" + i, {
+        zoneId: primaryZone.then(primaryZone => primaryZone.id),
+        name: "@",
+        value: value,
+        type: "A",
+    });
+});
+
+
 const githubPagesAAAARecords = [
     "2606:50c0:8000::153",
     "2606:50c0:8001::153",
@@ -26,11 +36,22 @@ const githubPagesAAAARecords = [
     "2606:50c0:8003::153",
 ];
 
+githubPagesAAAARecords.forEach((value, i) => {
+    const _ = new cloudflare.Record("githubPagesAAAA" + i, {
+        zoneId: primaryZone.then(primaryZone => primaryZone.id),
+        name: "@",
+        value: value,
+        type: "AAAA",
+    });
+});
+
+// All other DNS Records
 const recordList = [
     {
         name: "www",
         value: "@",
         type: "CNAME",
+        proxied: false,
     },
     {
         name: "docs",
@@ -39,28 +60,12 @@ const recordList = [
     }
 ];
 
-githubPagesARecords.forEach((value) => {
-    recordList.push({
-        name: "@",
-        value: value,
-        type: "A",
-    });
-});
-
-githubPagesAAAARecords.forEach((value) => {
-    recordList.push({
-        name: "@",
-        value: value,
-        type: "AAAA",
-    });
-});
-
-// Set up an A record within the DNS Zone
-recordList.forEach((record, i) => {
-    const _ = new cloudflare.Record(record.name + i, {
+recordList.forEach((record) => {
+    const _ = new cloudflare.Record(record.name + "." + zoneName, {
         zoneId: primaryZone.then(primaryZone => primaryZone.id),
         name: record.name,
         value: record.value,
         type: record.type,
+        proxied: record.proxied? record.proxied : false,
     });
 });
