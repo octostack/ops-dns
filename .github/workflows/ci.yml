@@ -26,3 +26,5 @@ jobs:
         with:
           command: preview
           stack-name: octostack/ops-dns/dev
+          comment-on-pr: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
